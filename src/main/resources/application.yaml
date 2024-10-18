@@ -1,0 +1,22 @@
+spring:
+  application.name: camunda-long-polling
+
+server:
+  port: 8080
+
+#Metrics related configurations
+management:
+  endpoint:
+    metrics.enabled: true
+    prometheus.enabled: true
+    health.show-details: always
+  endpoints.web.exposure.include: "*"
+
+# Self-managed local Zeebe
+camunda:
+  client:
+    zeebe:
+      defaults:
+        max-jobs-active: 1
+      base-url: http://localhost:26500
+    mode: simple
